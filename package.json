@@ -1,0 +1,51 @@
+{
+    "name": "wdio-multiple-cucumber-html-reporter",
+    "version": "0.1.0",
+    "description": "A WebdriverIO plugin. Report results in multiple-cucumber-html-reporter format.",
+    "main": "build/reporter.js",
+    "scripts": {
+        "compile": "babel lib/ -d build/",
+        "test": "node_modules/.bin/wdio __tests__/config/wdio.conf.js",
+        "watch": "npm run compile -- --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wswebcreation/wdio-multiple-cucumber-html-reporter.git"
+    },
+    "keywords": [
+        "multiple-cucumber-html-reporter",
+        "cucumberjs",
+        "reporter",
+        "report",
+        "webdriverio",
+        "wdio",
+        "wdio-plugin",
+        "wdio-reporter"
+    ],
+    "author": "Wim Selles <wim@wswebcreation.nl>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/wswebcreation/wdio-multiple-cucumber-html-reporter/issues"
+    },
+    "homepage": "https://github.com/wswebcreation/wdio-multiple-cucumber-html-reporter#readme",
+    "dependencies": {
+        "babel-runtime": "^6.26.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-eslint": "^8.2.3",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-plugin-transform-function-bind": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "chai": "^4.1.2",
+        "eslint": "^4.19.1",
+        "fs-extra": "^6.0.1",
+        "multiple-cucumber-html-reporter": "^1.10.1",
+        "wdio-cucumber-framework": "^1.1.0",
+        "wdio-spec-reporter": "^0.1.4",
+        "webdriverio": "^4.12.0",
+        "yargs": "^11.0.0"
+    }
+}
