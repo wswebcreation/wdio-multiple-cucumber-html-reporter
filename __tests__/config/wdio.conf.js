@@ -18,7 +18,7 @@ exports.config = {
     connectionRetryCount: 3,
     capabilities: [
         {
-            maxInstances: 1,
+            maxInstances: 5,
             browserName: 'chrome',
             chromeOptions: {
                 args: ['--headless', 'disable-infobars'],
@@ -80,6 +80,7 @@ exports.config = {
     reports and failure screenshots.
 =================================================================================\n`);
         fs.emptyDirSync('.tmp/');
+        fs.emptyDirSync('.dist/');
     },
 
     /**
