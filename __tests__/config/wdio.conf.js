@@ -31,6 +31,13 @@ exports.config = {
                 },
             },
         },
+        {
+            maxInstances: 5,
+            browserName: 'firefox',
+            'moz:firefoxOptions': {
+                args: ['-headless']
+            }
+        },
     ],
 
     // ======================

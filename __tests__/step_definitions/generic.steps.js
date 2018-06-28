@@ -14,6 +14,10 @@ Given(/I open "(.*)"/, function(url) {
     // browser.saveScreenshot();
 });
 
+Given(/a table step/, table =>{
+    console.log('table = ', table);
+})
+
 Then(/the title would say "(.*)"/, title => {
     expect(browser.getTitle()).to.equal(title);
 });

@@ -2,15 +2,14 @@
 A WebdriverIO plugin. Reporter that creates beautiful Cucumber HTML reports (https://github.com/wswebcreation/multiple-cucumber-html-reporter)
 
 ## TODO:
+### high priority
+Needs to be in the first beta
 - [x] Add `Before`-step to the json, see the remarks about the Before steps
 - [x] Add `After`-step to the json, see the remarks about the After steps
 - [x] Add browser data to the report, first start with the default capabilities
-- [ ] Add `Hooks` to the json
 - [x] Add screenshots to the report
 - [x] Add multiple screenshots to the report in 1 step
-- [ ] Add attachments to the report, see [attachments](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/attachments.md)
-- [ ] Add data tables to the report, see [data tables](https://github.com/cucumber/cucumber-js/blob/master/features/data_tables.feature)
-- [ ] Look at [CucumberJS feature](https://github.com/cucumber/cucumber-js/tree/master/features)-files to see what I've midded 
+- [x] Test in multiple browsers in parallel
 - [ ] Check / add `Passed` status
 - [ ] Check / add `Failed` status
 - [ ] Check / add `Pending` status
@@ -20,7 +19,18 @@ A WebdriverIO plugin. Reporter that creates beautiful Cucumber HTML reports (htt
 - [ ] Test on Windows
 - [ ] Test on Android
 - [ ] Test on iOS
-- [ ] Test in multiple browsers in parallel
+- [ ] Look at [CucumberJS feature](https://github.com/cucumber/cucumber-js/tree/master/features)-files to see what I've missed 
+
+### low priority
+Needs to be in, but are not mandatory
+- [ ] Add `Hooks` to the json
+- [ ] Add attachments to the report, see [attachments](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/attachments.md)
+
+
+### research
+- [ ] I know determine the platformName a little bit hacky, need to make this better
+- [ ] Find out where the keywords are, there is no `Given, When, Then` comming back from webdriver.io 
+- [ ] Add data tables to the report, see [data tables](https://github.com/cucumber/cucumber-js/blob/master/features/data_tables.feature) => **CURRENTLY NOT SUPPORTED BY WDIO-CUCUMBER-FRAMEWORK, NEED TO INVESTIGATE THIS**
 
 
 ## Some remarks
