@@ -30,6 +30,17 @@ exports.config = {
                     },
                 },
             },
+            metadata: {
+                browser: {
+                    name: 'chrome',
+                    version: '58'
+                },
+                device: 'MacBook Pro 15',
+                platform: {
+                    name: 'OSX',
+                    version: '10.12.6'
+                }
+            },
         },
         {
             maxInstances: 5,
