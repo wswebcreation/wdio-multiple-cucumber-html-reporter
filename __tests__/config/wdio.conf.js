@@ -1,6 +1,6 @@
-const fs = require('fs-extra'); // eslint-disable-line
-const argv = require('yargs').argv; // eslint-disable-line
-const chai = require('chai'); // eslint-disable-line
+const fs = require('fs-extra');
+const argv = require('yargs').argv;
+const chai = require('chai');
 const multipleCucumberHtmlReporter = require('../../build/reporter');
 multipleCucumberHtmlReporter.reporterName = 'multiple-cucumber-html-reporter';
 
@@ -58,7 +58,7 @@ exports.config = {
     specs: getFeatureFiles(),
     cucumberOpts: {
         require: [
-            '__tests__/config/helpers/*.js',
+            // '__tests__/config/helpers/*.js',
             '__tests__/**/*.steps.js',
         ],
         backtrace: false,
@@ -66,10 +66,10 @@ exports.config = {
         colors: true,
         snippets: true,
         source: true,
-        tagExpression: '',
+        tags: 'not @wip',
         timeout: 60000,
+        failAmbiguousDefinitions: false,
         ignoreUndefinedDefinitions: false,
-        format: 'json:.tmp/results.json',
     },
 
     // ====================
@@ -77,16 +77,11 @@ exports.config = {
     // ====================
     reporters: ['spec', multipleCucumberHtmlReporter],
     reporterOptions: {
-        outputDir: './.tmp'
+        mchr: {
+            jsonDir: '.tmp/new/',
+            reportPath: '.tmp/multiple-cucumber-html-reporter/',
+        }
     },
-    // reporters: ['allure'],
-    // reporterOptions: {
-    //     allure: {
-    //         outputDir: 'allure-results',
-    //         disableWebdriverStepsReporting: true,
-    //         useCucumberStepReporter: false
-    //     }
-    // },
 
     /**
      * Gets executed once before all workers get launched.
@@ -98,7 +93,6 @@ exports.config = {
     reports and failure screenshots.
 =================================================================================\n`);
         fs.emptyDirSync('.tmp/');
-        fs.emptyDirSync('.dist/');
     },
 
     /**
@@ -123,13 +117,13 @@ exports.config = {
  *
  * <pre>
  *     // For 1 feature
- *     npm run e2e.io -- --feature=playground
+ *     npm run test -- --feature=playground
  *
  *     // For multiple features
- *     npm run e2e.io -- --feature=playground,login,...
+ *     npm run test -- --feature=playground,login,...
  *
  *     // Else
- *     npm run e2e.ios
+ *     npm run test
  * </pre>
  */
 function getFeatureFiles() {

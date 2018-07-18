@@ -50,12 +50,12 @@ Needs to be in the first beta
 - [x] Add screenshots to the report
 - [x] Add multiple screenshots to the report in 1 step
 - [x] Test in multiple browsers in parallel
-- [ ] Check / add `Passed` status
-- [ ] Check / add `Failed` status
-- [ ] Check / add `Pending` status
-- [ ] Check / add `Ambiguous` status
-- [ ] Check / add `Skipped` status
-- [ ] Check / add `undefined` status
+- [x] Check / add `Passed` status
+- [x] Check / add `Failed` status
+- [x] Check / add `Pending` status
+- [x] Check / add `Ambiguous` status
+- [x] Check / add `Skipped` status
+- [x] Check / add `undefined` status
 - [ ] Test on Windows
 - [ ] Test on Android
 - [ ] Test on iOS
@@ -68,7 +68,8 @@ Needs to be in, but are not mandatory
 
 
 ### research
-- [ ] Find out where the keywords are, there is no `Given, When, Then` comming back from webdriver.io 
+- [ ] Find out where the keywords are, there is no `Given, When, Then` comming back from webdriver.io
+- [ ] Find out where the description of the feature is. Can't find it in the methods and it will not be added to the report then 
 - [ ] Add data tables to the report, see [data tables](https://github.com/cucumber/cucumber-js/blob/master/features/data_tables.feature) => **CURRENTLY NOT SUPPORTED BY WDIO-CUCUMBER-FRAMEWORK, NEED TO INVESTIGATE THIS**
 
 
@@ -101,3 +102,17 @@ Status pending of the After hook has no effect on the status of the report / wdi
 
 ### I don't see the keywords `Given, When, Then` in the report
 The module `wdio-cucumber-framework` doesn't provide this information so it can't be shown in the report.
+Added an issue for this, see [133](https://github.com/webdriverio/wdio-cucumber-framework/issues/133)
+
+### `skipped` steps are marked as `pending`
+`skipped` steps are currently marked as `pending` because `wdio-cucumber-framework` can't distinguish them, there is a PR for this, see [here](https://github.com/webdriverio/wdio-cucumber-framework/pull/34)
+
+### `ambiguous` steps are marked as `pending`
+CucumberJS has a status called `ambiguous`, this should also be shown in the report.
+Because `wdio-cucumber-framework` has it's own implementation to handle ambiguous steps , see [here](https://github.com/webdriverio/wdio-cucumber-framework#failambiguousdefinitions)
+it will not show the correct status in the report using this module.
+
+### `undefined` steps are not marked as `undefined`
+CucumberJS has a status called `undefined`, this should also be shown in the report.
+Because `wdio-cucumber-framework` has it's own implementation to handle undefined steps , see [here](https://github.com/webdriverio/wdio-cucumber-framework#ignoreundefineddefinitions)
+it will not show the correct status in the report using this module.
