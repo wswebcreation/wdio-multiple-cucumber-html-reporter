@@ -47,7 +47,7 @@ Configure the output directory in your wdio.conf.js file:
 ```js
 exports.config = {
     // ...
-    reporters: ['multiple-cucumber-html-reporter'],
+    reporters: ['multiple-cucumber-html'],
     reporterOptions: {
         htmlReporter: {
             jsonFolder: './tmp',
