@@ -13,6 +13,10 @@ This reporter does two things
 
 ![Snapshot - Report overview](./docs/assets/report-overview.jpg)
 
+3. It also supports `Given|When|Then`-keywords and Datatables
+
+![Snapshot - Given When Then Datatables](./docs/assets/given-datatables.jpg)
+
 > Not all options / data that is provided in [multiple-cucumber-html-reporter](https://github.com/wswebcreation/multiple-cucumber-html-reporter) can be used due to limitations in the generated JSON file by this reporter
 
 
