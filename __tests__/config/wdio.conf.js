@@ -8,6 +8,7 @@ exports.config = {
     // ==================
     // Test Configuration
     // ==================
+    port: 1234,
     sync: true,
     logLevel: argv.logLevel || 'silent',
     coloredLogs: true,
@@ -58,7 +59,6 @@ exports.config = {
     specs: getFeatureFiles(),
     cucumberOpts: {
         require: [
-            // '__tests__/config/helpers/*.js',
             '__tests__/**/*.steps.js',
         ],
         backtrace: false,
@@ -77,9 +77,10 @@ exports.config = {
     // ====================
     reporters: ['spec', multipleCucumberHtmlReporter],
     reporterOptions: {
-        mchr: {
-            jsonDir: '.tmp/new/',
-            reportPath: '.tmp/multiple-cucumber-html-reporter/',
+        htmlReporter: {
+            jsonFolder: '.tmp/new/',
+            reportFolder: '.tmp/multiple-cucumber-html-reporter/',
+            displayDuration: true,
         }
     },
 
