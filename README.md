@@ -247,6 +247,22 @@ See the metadata information [here](https://github.com/wswebcreation/multiple-cu
 
 ## FAQ's
 
+### How do I add screenshots to the report
+Just create a `After`-hook in a stepfile like this
+
+```js
+import {After} from 'cucumber';
+
+After((scenarioResult)=>{
+    // Here it is added to a failed step, but each time you call `browser.saveScreenshot()` it will automatically bee added to the report
+    if (scenarioResult.result.status === Status.FAILED) {
+        // It will add the screenshot to the JSON
+        browser.saveScreenshot()
+    }
+    return scenarioResult.status;
+});
+```
+
 ### I don't see the keywords `Given, When, Then` in the report
 The module `wdio-cucumber-framework` only provides this information from version `2.2.0` and higher. Please upgrade to that version.
 
