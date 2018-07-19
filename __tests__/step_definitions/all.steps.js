@@ -1,4 +1,4 @@
-import {After, Before, Given, Status, Then} from 'cucumber';
+import {After, Before, Given, Status, Then, When} from 'cucumber';
 
 Given(/I open "(.*)"/, function(url) {
     browser.url(url);
@@ -16,7 +16,19 @@ Given(/I open "(.*)"/, function(url) {
 
 Given(/a table step/, table =>{
     console.log('table = ', table);
-})
+});
+
+Given(/a (skipped|pending) step/, stepType =>{
+    return Promise.resolve(stepType);
+});
+
+Given(/an ambiguous step/, stepType =>{
+    return Promise.resolve('ambiguous');
+});
+
+Given(/an ambiguous step/, stepType =>{
+    return Promise.resolve('ambiguous');
+});
 
 Then(/the title would say "(.*)"/, title => {
     expect(browser.getTitle()).to.equal(title);
@@ -24,10 +36,10 @@ Then(/the title would say "(.*)"/, title => {
 
 
 Before((scenarioResult) => {
-    console.log('Before-hook');
+    // console.log('Before-hook');
     // console.log('beforeData = ', scenarioResult);
     // browser.pause(5000)
-    expect(true).to.equal(true);
+    // expect(true).to.equal(true);
     // return Promise.resolve('pending');
 });
 
@@ -52,8 +64,18 @@ Before((scenarioResult) => {
  * Hook for the new
  */
 After((scenarioResult)=>{
-    if (scenarioResult.status === Status.FAILED) {
+    if (scenarioResult.result.status === Status.FAILED) {
         browser.saveScreenshot()
     }
     return scenarioResult.status;
 });
+
+/**
+ * Some extra's
+ */
+
+Given(/I'm a given background/,()=>{});
+When(/I'm a when background/,()=>{});
+When(/I'm a scenario when step/,()=>{});
+Then(/I would be a when background/,()=>{});
+Then(/I'm a scenario then step/,()=>{});
