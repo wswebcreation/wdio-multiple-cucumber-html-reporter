@@ -264,7 +264,7 @@ Because `wdio-cucumber-framework` has it's own implementation to handle undefine
 it will not show the correct status in the report using this module.
 
 ## Changelog
-A changelog can be found [here](./docs/CHANGELOG.md).
+A changelog can be found [here](./CHANGELOG.md).
 
 ## Contributing
 How to contribute can be found [here](./docs/CONTRIBUTING.md).

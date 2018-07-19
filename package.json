@@ -29,6 +29,7 @@
     },
     "homepage": "https://github.com/wswebcreation/wdio-multiple-cucumber-html-reporter#readme",
     "dependencies": {
+        "multiple-cucumber-html-reporter": "^1.10.1",
         "babel-runtime": "^6.26.0"
     },
     "peerDependencies": {
@@ -45,7 +46,6 @@
         "chai": "^4.1.2",
         "eslint": "^4.19.1",
         "fs-extra": "^6.0.1",
-        "multiple-cucumber-html-reporter": "^1.10.1",
         "wdio-cucumber-framework": "^2.2.0",
         "wdio-spec-reporter": "^0.1.4",
         "webdriverio": "^4.13.1",
