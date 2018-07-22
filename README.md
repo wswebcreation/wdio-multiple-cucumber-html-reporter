@@ -3,7 +3,7 @@ A WebdriverIO reporter plugin. Reporter that creates beautiful Cucumber HTML rep
 
 > **THIS REPORTER IS STILL UNDER DEVELOPMENT, FEEL FREE TO ADD PR'S**
 
-> **THIS REPORTER NEEDS TO USE `wdio-cucumber-framework` OR HIGHER, SEE FAQ'S**
+> **THIS REPORTER NEEDS TO USE `wdio-cucumber-framework` `2.2.0` OR HIGHER, SEE FAQ'S**
 
 ## What does it do?
 This reporter does two things
@@ -47,7 +47,7 @@ Configure the output directory in your wdio.conf.js file:
 ```js
 exports.config = {
     // ...
-    reporters: ['multiple-cucumber-html-reporter'],
+    reporters: ['multiple-cucumber-html'],
     reporterOptions: {
         htmlReporter: {
             jsonFolder: './tmp',
