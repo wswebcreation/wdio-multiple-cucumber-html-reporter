@@ -93,7 +93,7 @@ exports.config = {
     The '.tmp'-folder is being removed. This is the folder that holds all the 
     reports and failure screenshots.
 =================================================================================\n`);
-        // fs.emptyDirSync('.tmp/');
+        fs.emptyDirSync('.tmp/');
     },
 
     /**
