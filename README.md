@@ -145,31 +145,6 @@ If you need add some custom style to your report. Add it like this `customStyle:
 
 If you need replace default style for your report. Add it like this `overrideStyle: 'your-path-where/custom.css'`
 
-### `metadata`
-- **Type:** `JSON`
-- **Mandatory:** No
-
-Print more data to your report, such as browser name + version, platform name + version and your environment. The values need to meet some predefined data, see [Metadata](./README.MD#metadata) for more info.
-Data can be passed like below.
-
-> **If you provide the metadata when instantiating `multi-cucumber-html-reporter` the metadata will be added to each feature. If you already have metadata in your JSON then the metadata in the JSON will take precedence**
-
-```js
-metadata:{
-    browser: {
-        name: 'chrome',
-        version: '60'
-    },
-    device: 'Local test machine',
-    platform: {
-        name: 'ubuntu',
-        version: '16.04'
-    }
-}
-```
-
-See [metadata](./README.MD#metadata-1) for more info
-
 ### `customData`
 - **Type:** `object`
 - **Mandatory:** No

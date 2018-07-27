@@ -81,6 +81,22 @@ exports.config = {
             jsonFolder: '.tmp/new/',
             reportFolder: '.tmp/multiple-cucumber-html-reporter/',
             displayDuration: true,
+            openReportInBrowser: true,
+            saveCollectedJSON: true,
+            disableLog: true,
+            pageTitle: 'pageTitle',
+            reportName: 'reportName',
+            pageFooter: '<div><h1>Custom footer</h1></div>',
+            customData: {
+                title: 'Run info',
+                data: [
+                    {label: 'Project', value: 'Custom project'},
+                    {label: 'Release', value: '1.2.3'},
+                    {label: 'Cycle', value: 'B11221.34321'},
+                    {label: 'Execution Start Time', value: 'Nov 19th 2017, 02:31 PM EST'},
+                    {label: 'Execution End Time', value: 'Nov 19th 2017, 02:56 PM EST'}
+                ]
+            },
         }
     },
 
