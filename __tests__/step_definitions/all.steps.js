@@ -30,6 +30,10 @@ Given(/an ambiguous step/, stepType =>{
     return Promise.resolve('ambiguous');
 });
 
+Given(/an outline (.*) step/, outline =>{
+    return Promise.resolve();
+});
+
 Then(/the title would say "(.*)"/, title => {
     expect(browser.getTitle()).to.equal(title);
 });
