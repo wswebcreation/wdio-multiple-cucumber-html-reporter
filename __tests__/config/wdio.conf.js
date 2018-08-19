@@ -1,4 +1,3 @@
-const fs = require('fs-extra');
 const argv = require('yargs').argv;
 const chai = require('chai');
 const multipleCucumberHtmlReporter = require('../../build/reporter');
@@ -78,6 +77,7 @@ exports.config = {
     reporters: ['spec', multipleCucumberHtmlReporter],
     reporterOptions: {
         htmlReporter: {
+            removeFolders: true,
             jsonFolder: '.tmp/new/',
             reportFolder: '.tmp/multiple-cucumber-html-reporter/',
             displayDuration: true,
@@ -98,18 +98,6 @@ exports.config = {
                 ]
             },
         }
-    },
-
-    /**
-     * Gets executed once before all workers get launched.
-     */
-    onPrepare: () => {
-        console.log(`
-=================================================================================
-    The '.tmp'-folder is being removed. This is the folder that holds all the 
-    reports and failure screenshots.
-=================================================================================\n`);
-        fs.emptyDirSync('.tmp/');
     },
 
     /**

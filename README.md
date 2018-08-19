@@ -76,11 +76,17 @@ The directory in which the report needs to be saved, relative from where the scr
 
 **N.B.:** If you use a npm script from the command line, like for example `npm run test` the `reportFolder` will be relative from the path where the script is executed. Executing it from the root of your project will also save the report in the `reportFolder` in the root of you project.
 
+### `removeFolders`
+- **Type:** `boolean`
+- **Mandatory:** No
+
+If `true` the the `jsonFolder` and the `reportFolder` will be removed to start the test with a clean state.
+
 ### `openReportInBrowser`
 - **Type:** `boolean`
 - **Mandatory:** No
 
-If true the report will automatically be opened in the default browser of the operating system.
+If `true` the report will automatically be opened in the default browser of the operating system.
 
 ### `saveCollectedJSON`
 - **Type:** `boolean`
