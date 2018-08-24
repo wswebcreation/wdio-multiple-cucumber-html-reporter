@@ -2,12 +2,11 @@ Feature: Create scenario outline feature
     This is a feature description
     Second description
 
-    Scenario Outline: a scenario outline key:<key>
-        Given an outline <key> step
-        When I'm a scenario when step
-        Then I'm a scenario then step
+    Scenario Outline: a scenario outline header1:<header1> and header2:<header2>
+        Given an outline <header1> step
+        And an outline <header2> step
 
         Examples:
-            | key       |
-            | outline 1 |
-            | outline 2 |
+            | header1   | header2 |
+            | outline 1 | value1  |
+            | outline 2 | value2  |

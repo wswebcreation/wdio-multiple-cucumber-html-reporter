@@ -3,7 +3,7 @@ A WebdriverIO reporter plugin. Reporter that creates beautiful Cucumber HTML rep
 
 > **THIS REPORTER IS STILL UNDER DEVELOPMENT, FEEL FREE TO ADD PR'S**
 
-> **THIS REPORTER NEEDS TO USE `wdio-cucumber-framework` `2.2.0` OR HIGHER, SEE FAQ'S**
+> **THIS REPORTER NEEDS TO USE `wdio-cucumber-framework` `2.2.5` OR HIGHER, SEE FAQ'S**
 
 ## What does it do?
 This reporter does two things
@@ -26,7 +26,7 @@ The easiest way is to keep `wdio-multiple-cucumber-html-reporter` as a devDepend
 ```json
 {
   "devDependencies": {
-    "wdio-multiple-cucumber-html-reporter": "~0.1.0"
+    "wdio-multiple-cucumber-html-reporter": "^0.2.0"
   }
 }
 ```
