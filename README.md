@@ -139,6 +139,14 @@ This expects the durations in the report to be in **nanoseconds**, which might r
 
 > **NOTE: Only the duration of a feature can be shown in the features overview. A total duration over all features CAN NOT be given because the module doesn't know if all features have been run in parallel**
 
+### `durationInMS`
+- **Type:** `boolean`
+- **Default:** `false`
+- **Mandatory:** No
+
+If set to `true` the duration of steps will be expected to be in **milliseconds**, which might result in incorrect durations when using a version of Cucumber(JS 1 or 4) that does report in **nanaseconds**.
+This parameter relies on `displayDuration: true`
+
 ### `customStyle`
 - **Type:** `path`
 - **Mandatory:** No
