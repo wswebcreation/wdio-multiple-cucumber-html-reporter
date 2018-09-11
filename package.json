@@ -1,6 +1,6 @@
 {
     "name": "wdio-multiple-cucumber-html-reporter",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "description": "A WebdriverIO plugin. Report results in multiple-cucumber-html-reporter format.",
     "main": "build/reporter.js",
     "scripts": {
