@@ -246,7 +246,7 @@ See the metadata information [here](https://github.com/wswebcreation/multiple-cu
 Just create a `After`-hook in a stepfile like this
 
 ```js
-import {After} from 'cucumber';
+import {After, Status} from 'cucumber';
 
 After((scenarioResult)=>{
     // Here it is added to a failed step, but each time you call `browser.saveScreenshot()` it will automatically bee added to the report
