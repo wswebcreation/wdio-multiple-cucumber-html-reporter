@@ -65,7 +65,7 @@ exports.config = {
         colors: true,
         snippets: true,
         source: true,
-        tags: 'not @wip',
+        tagExpression: 'not @wip and not @ignore',
         timeout: 60000,
         failAmbiguousDefinitions: false,
         ignoreUndefinedDefinitions: false,
