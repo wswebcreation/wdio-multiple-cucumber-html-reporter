@@ -7,6 +7,8 @@ A WebdriverIO reporter plugin. Reporter that creates beautiful Cucumber HTML rep
 
 > **`multiple-cucumber-html-reporter`, WHICH IS USED IN THIS REPORTER PLUGIN WILL ONLY WORK ON NODE >= 7**
 
+> **THIS MODULE CAN ONLY WORK WITH WebdriverIO V4 BECAUSE `wdio-cucumber-framework` IS NOT V5 COMPATIBLE**
+
 ## What does it do?
 This reporter does two things
 
