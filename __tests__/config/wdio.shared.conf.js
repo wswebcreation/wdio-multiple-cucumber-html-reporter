@@ -1,4 +1,4 @@
-const argv = require('yargs').argv;
+const { argv } = require('yargs');
 const chai = require('chai');
 const multipleCucumberHtmlReporter = require('../../build/reporter');
 multipleCucumberHtmlReporter.reporterName = 'multiple-cucumber-html-reporter';
@@ -7,7 +7,6 @@ exports.config = {
     // ==================
     // Test Configuration
     // ==================
-    services: ['selenium-standalone'],
     sync: true,
     logLevel: argv.logLevel || 'silent',
     coloredLogs: true,
@@ -16,40 +15,6 @@ exports.config = {
     waitforTimeout: 20000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
-    capabilities: [
-        {
-            maxInstances: 5,
-            browserName: 'chrome',
-            chromeOptions: {
-                args: ['--headless', 'disable-infobars'],
-                prefs: {
-                    download: {
-                        prompt_for_download: false,
-                        directory_upgrade: true,
-                        default_directory: './tmp',
-                    },
-                },
-            },
-            metadata: {
-                browser: {
-                    name: 'chrome',
-                    version: '58'
-                },
-                device: 'MacBook Pro 15',
-                platform: {
-                    name: 'OSX',
-                    version: '10.12.6'
-                }
-            },
-        },
-        {
-            maxInstances: 5,
-            browserName: 'firefox',
-            'moz:firefoxOptions': {
-                args: ['-headless']
-            }
-        },
-    ],
 
     // ======================
     // Cucumber configuration
@@ -61,7 +26,7 @@ exports.config = {
             '__tests__/**/*.steps.js',
         ],
         backtrace: false,
-        compiler: ['js:babel-register'],
+        compiler: [ 'js:babel-register' ],
         colors: true,
         snippets: true,
         source: true,
@@ -74,7 +39,7 @@ exports.config = {
     // ====================
     // Reporter
     // ====================
-    reporters: ['spec', multipleCucumberHtmlReporter],
+    reporters: [ 'spec', multipleCucumberHtmlReporter ],
     reporterOptions: {
         htmlReporter: {
             removeFolders: true,
@@ -90,11 +55,11 @@ exports.config = {
             customData: {
                 title: 'Run info',
                 data: [
-                    {label: 'Project', value: 'Custom project'},
-                    {label: 'Release', value: '1.2.3'},
-                    {label: 'Cycle', value: 'B11221.34321'},
-                    {label: 'Execution Start Time', value: 'Nov 19th 2017, 02:31 PM EST'},
-                    {label: 'Execution End Time', value: 'Nov 19th 2017, 02:56 PM EST'}
+                    { label: 'Project', value: 'Custom project' },
+                    { label: 'Release', value: '1.2.3' },
+                    { label: 'Cycle', value: 'B11221.34321' },
+                    { label: 'Execution Start Time', value: 'Nov 19th 2017, 02:31 PM EST' },
+                    { label: 'Execution End Time', value: 'Nov 19th 2017, 02:56 PM EST' }
                 ]
             },
         }
@@ -133,9 +98,8 @@ exports.config = {
  */
 function getFeatureFiles() {
     if (argv.feature) {
-        return argv.feature.split(',')
-            .map(feature => `${process.cwd()}/__tests__/**/${feature}.feature`);
+        return argv.feature.split(',').map(feature => `${ process.cwd() }/__tests__/**/${ feature }.feature`);
     }
 
-    return [`${process.cwd()}/__tests__/**/*.feature`];
+    return [ `${ process.cwd() }/__tests__/**/*.feature` ];
 }

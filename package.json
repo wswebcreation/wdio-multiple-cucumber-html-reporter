@@ -5,7 +5,9 @@
     "main": "build/reporter.js",
     "scripts": {
         "compile": "babel lib/ -d build/",
-        "test": "node_modules/.bin/wdio __tests__/config/wdio.conf.js",
+        "test.browsers": "node_modules/.bin/wdio __tests__/config/wdio.browsers.conf.js",
+        "test.app.android": "node_modules/.bin/wdio __tests__/config/wdio.app.android.conf.js",
+        "test.app.ios": "node_modules/.bin/wdio __tests__/config/wdio.app.ios.conf.js",
         "watch": "npm run compile -- --watch"
     },
     "repository": {
@@ -49,7 +51,7 @@
         "wdio-cucumber-framework": "^2.2.8",
         "wdio-selenium-standalone-service": "0.0.10",
         "wdio-spec-reporter": "^0.1.4",
-        "webdriverio": "^4.14.1",
+        "webdriverio": "^4.14.4",
         "yargs": "^11.0.0"
     }
 }

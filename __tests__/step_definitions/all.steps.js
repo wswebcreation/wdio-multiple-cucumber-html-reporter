@@ -1,6 +1,6 @@
-import {After, Before, Given, Status, Then, When} from 'cucumber';
+import { After, Before, Given, Status, Then, When } from 'cucumber';
 
-Given(/I open "(.*)"/, function(url) {
+Given(/I open "(.*)"/, function (url) {
     browser.url(url);
     /**
      * Enable below to test with double screenshots with the old way
@@ -14,23 +14,23 @@ Given(/I open "(.*)"/, function(url) {
     // browser.saveScreenshot();
 });
 
-Given(/a table step/, table =>{
+Given(/a table step/, table => {
     console.log('table = ', table);
 });
 
-Given(/a (skipped|pending) step/, stepType =>{
+Given(/a (skipped|pending) step/, stepType => {
     return Promise.resolve(stepType);
 });
 
-Given(/an ambiguous step/, stepType =>{
+Given(/an ambiguous step/, stepType => {
     return Promise.resolve('ambiguous');
 });
 
-Given(/an ambiguous step/, stepType =>{
+Given(/an ambiguous step/, stepType => {
     return Promise.resolve('ambiguous');
 });
 
-Given(/an outline (.*) step/, outline =>{
+Given(/an outline (.*) step/, outline => {
     return Promise.resolve();
 });
 
@@ -67,19 +67,31 @@ Before((scenarioResult) => {
 /**
  * Hook for the new
  */
-After((scenarioResult)=>{
+After(function (scenarioResult) {
     if (scenarioResult.result.status === Status.FAILED) {
         browser.saveScreenshot()
     }
+
+    this.attach('{"name": "some JSON"}', 'application/json');
+    this.attach('Some text');
+
     return scenarioResult.status;
 });
 
 /**
  * Some extra's
  */
+Given(/I'm a given background/, () => {});
+When(/I'm a when background/, () => {});
+When(/I'm a scenario when step/, () => {});
+Then(/I would be a when background/, () => {});
+Then(/I'm a scenario then step/, () => {});
 
-Given(/I'm a given background/,()=>{});
-When(/I'm a when background/,()=>{});
-When(/I'm a scenario when step/,()=>{});
-Then(/I would be a when background/,()=>{});
-Then(/I'm a scenario then step/,()=>{});
+
+/**
+ * For the app
+ */
+Given(/I open the app/, () => {});
+Given(/the home screen is shown/, () => {
+    expect($('~Home').waitForVisible(20000)).to.equal(true);
+});
