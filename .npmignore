@@ -16,3 +16,9 @@ node_modules
 .idea
 
 package-lock.json
+
+.tmp/
+.github/
+__tests__/
+apps/
+docs/
