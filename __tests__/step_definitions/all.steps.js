@@ -1,4 +1,5 @@
 import { After, Before, Given, Status, Then, When } from 'cucumber';
+import multipleCucumberHtmlReporter from'../../build/reporter';
 
 Given(/I open "(.*)"/, function (url) {
     browser.url(url);
@@ -87,6 +88,17 @@ When(/I'm a scenario when step/, () => {});
 Then(/I would be a when background/, () => {});
 Then(/I'm a scenario then step/, () => {});
 
+
+/**
+ * For the attach
+ */
+Given(/I open the url "(.*)"/, url => {
+    browser.url(url)
+    multipleCucumberHtmlReporter.attach('just a string');
+    multipleCucumberHtmlReporter.attach({"json-string": true}, 'application/json');
+    multipleCucumberHtmlReporter.attach(browser.saveScreenshot(), 'image/png');
+    multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png');
+});
 
 /**
  * For the app

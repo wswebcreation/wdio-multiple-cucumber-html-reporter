@@ -21,6 +21,22 @@ This reporter does two things
 
 ![Snapshot - Given When Then Datatables](./docs/assets/given-datatables.jpg)
 
+4. Data can also be added to steps with the following code
+
+
+```js
+import multipleCucumberHtmlReporter from 'wdio-multiple-cucumber-html-reporter';
+
+// Attach a string
+multipleCucumberHtmlReporter.attach('just a string');
+// Attach JSON
+multipleCucumberHtmlReporter.attach({"json-string": true}, 'application/json');
+// Attach a screenshot
+multipleCucumberHtmlReporter.attach(browser.saveScreenshot(), 'image/png');
+// Or with
+multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png');
+```
+
 > Not all options / data that is provided in [multiple-cucumber-html-reporter](https://github.com/wswebcreation/multiple-cucumber-html-reporter) can be used due to limitations in the generated JSON file by this reporter
 
 
@@ -249,12 +265,15 @@ Just create a `After`-hook in a stepfile like this
 
 ```js
 const {After, Status} = require('cucumber');
+import multipleCucumberHtmlReporter from 'wdio-multiple-cucumber-html-reporter';
 
 After((scenarioResult)=>{
     // Here it is added to a failed step, but each time you call `browser.saveScreenshot()` it will automatically bee added to the report
     if (scenarioResult.result.status === Status.FAILED) {
         // It will add the screenshot to the JSON
-        browser.saveScreenshot()
+        multipleCucumberHtmlReporter.attach(browser.saveScreenshot(), 'image/png');
+        // Or with
+        multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png');
     }
     return scenarioResult.status;
 });
