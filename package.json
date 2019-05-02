@@ -4,7 +4,10 @@
     "description": "A WebdriverIO plugin. Report results in multiple-cucumber-html-reporter format.",
     "main": "build/reporter.js",
     "scripts": {
+        "clean": "rimraf coverage build .tmp",
         "compile": "babel lib/ -d build/",
+        "precompile": "npm run clean",
+        "prepublish": "npm run compile",
         "test.browsers": "node_modules/.bin/wdio __tests__/config/wdio.browsers.conf.js",
         "test.app.android": "node_modules/.bin/wdio __tests__/config/wdio.app.android.conf.js",
         "test.app.ios": "node_modules/.bin/wdio __tests__/config/wdio.app.ios.conf.js",
@@ -48,6 +51,7 @@
         "babel-preset-env": "^1.7.0",
         "chai": "^4.2.0",
         "eslint": "^4.19.1",
+        "rimraf": "^2.6.3",
         "wdio-cucumber-framework": "^2.2.8",
         "wdio-selenium-standalone-service": "0.0.10",
         "wdio-spec-reporter": "^0.1.4",
