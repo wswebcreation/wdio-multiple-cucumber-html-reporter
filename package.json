@@ -6,7 +6,9 @@
     "scripts": {
         "clean": "rimraf coverage build .tmp",
         "compile": "babel lib/ -d build/",
+        "release": "np",
         "precompile": "npm run clean",
+        "prerelease": "npm run compile",
         "prepublish": "npm run compile",
         "test.browsers": "node_modules/.bin/wdio __tests__/config/wdio.browsers.conf.js",
         "test.app.android": "node_modules/.bin/wdio __tests__/config/wdio.app.android.conf.js",
@@ -51,6 +53,7 @@
         "babel-preset-env": "^1.7.0",
         "chai": "^4.2.0",
         "eslint": "^4.19.1",
+        "np": "^5.0.1",
         "rimraf": "^2.6.3",
         "wdio-cucumber-framework": "^2.2.8",
         "wdio-selenium-standalone-service": "0.0.10",
