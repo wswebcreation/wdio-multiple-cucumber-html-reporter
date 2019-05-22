@@ -41,6 +41,7 @@ multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png');
 but you need to add an extra `hookType`, which is a string. For the `before`-hook you use the string `before` and for the `after`-hook you can use the string `after`.
 See the examples below
 
+> **Keep in mind this is only for the `before|after`-hooks, if you add them in steps you will mess up your own report**
 
 ```js
 import multipleCucumberHtmlReporter from 'wdio-multiple-cucumber-html-reporter';
