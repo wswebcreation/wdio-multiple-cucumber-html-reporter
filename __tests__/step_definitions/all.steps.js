@@ -1,5 +1,5 @@
 import { After, Before, Given, Status, Then, When } from 'cucumber';
-import multipleCucumberHtmlReporter from'../../build/reporter';
+import multipleCucumberHtmlReporter from '../../build/reporter';
 
 Given(/I open "(.*)"/, function (url) {
     browser.url(url);
@@ -46,6 +46,9 @@ Before((scenarioResult) => {
     // browser.pause(5000)
     // expect(true).to.equal(true);
     // return Promise.resolve('pending');
+
+    multipleCucumberHtmlReporter.attach('Before string 1', 'before');
+    multipleCucumberHtmlReporter.attach('Before string 2', 'text/plain', 'before');
 });
 
 /**
@@ -68,14 +71,24 @@ Before((scenarioResult) => {
 /**
  * Hook for the new
  */
-After(function (scenarioResult) {
+// After(function (scenarioResult) {
+//     if (scenarioResult.result.status === Status.FAILED) {
+//         browser.saveScreenshot()
+//     }
+//
+//     this.attach('{"name": "some JSON"}', 'application/json');
+//     this.attach('Some text');
+//
+//     return scenarioResult.status;
+// });
+
+After(scenarioResult => {
     if (scenarioResult.result.status === Status.FAILED) {
-        browser.saveScreenshot()
+        // It will add the screenshot to the JSON
+        multipleCucumberHtmlReporter.attach('After string 1', 'after');
+        multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png', 'after');
+        multipleCucumberHtmlReporter.attach('After string 2', 'text/plain', 'after');
     }
-
-    this.attach('{"name": "some JSON"}', 'application/json');
-    this.attach('Some text');
-
     return scenarioResult.status;
 });
 
@@ -95,7 +108,7 @@ Then(/I'm a scenario then step/, () => {});
 Given(/I open the url "(.*)"/, url => {
     browser.url(url)
     multipleCucumberHtmlReporter.attach('just a string');
-    multipleCucumberHtmlReporter.attach({"json-string": true}, 'application/json');
+    multipleCucumberHtmlReporter.attach({ 'json-string': true }, 'application/json');
     multipleCucumberHtmlReporter.attach(browser.saveScreenshot(), 'image/png');
     multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png');
 });

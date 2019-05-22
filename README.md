@@ -21,7 +21,7 @@ This reporter does two things
 
 ![Snapshot - Given When Then Datatables](./docs/assets/given-datatables.jpg)
 
-4. Data can also be added to steps with the following code
+4. Data can also be added to **steps** (so not `before|after`-hooks) with the following code
 
 
 ```js
@@ -36,6 +36,40 @@ multipleCucumberHtmlReporter.attach(browser.saveScreenshot(), 'image/png');
 // Or with
 multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png');
 ```
+
+5. Data can also be added to **`before|after`**-hooks. You can use the same method as above
+but you need to add an extra `hookType`, which is a string. For the `before`-hook you use the string `before` and for the `after`-hook you can use the string `after`.
+See the examples below
+
+
+```js
+import multipleCucumberHtmlReporter from 'wdio-multiple-cucumber-html-reporter';
+
+// BEFORE
+// Attach a string in a before hook
+multipleCucumberHtmlReporter.attach('just a string', 'before');
+// Attach JSON in a before hook
+multipleCucumberHtmlReporter.attach({"json-string": true}, 'application/json', 'before');
+// Attach a screenshot in a before hook
+multipleCucumberHtmlReporter.attach(browser.saveScreenshot(), 'image/png', 'before');
+// Or with
+multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png', 'before');
+
+
+// AFTER
+// Attach a string in a after hook
+multipleCucumberHtmlReporter.attach('just a string', 'after');
+// Attach JSON in a after hook
+multipleCucumberHtmlReporter.attach({"json-string": true}, 'application/json', 'after');
+// Attach a screenshot in a after hook
+multipleCucumberHtmlReporter.attach(browser.saveScreenshot(), 'image/png', 'after');
+// Or with
+multipleCucumberHtmlReporter.attach(browser.screenshot(), 'image/png', 'after');
+```
+
+Keep in mind that this will add a passed step for the `before|after`-hook as can be seen here
+
+![Snapshot - Before / After hook](./docs/assets/before-after.jpg)
 
 > Not all options / data that is provided in [multiple-cucumber-html-reporter](https://github.com/wswebcreation/multiple-cucumber-html-reporter) can be used due to limitations in the generated JSON file by this reporter
 
@@ -321,9 +355,9 @@ Needs to be in the first beta
 Needs to be in, but are not mandatory
 - [ ] Investigate `Hooks` and if they can influence the outcome
 - [ ] Write UT's
-- [ ] Test on Windows
-- [ ] Test on Android
-- [ ] Test on iOS
+- [x] Test on Windows
+- [x] Test on Android
+- [x] Test on iOS
 
 ### research
 - [x] Find out where the keywords are, there is no `Given, When, Then` comming back from webdriver.io => => Created a PR for [wdio-cucumber-framework 136](https://github.com/webdriverio/wdio-cucumber-framework/pull/136) that has been merged and released as version `2.2.0`
@@ -332,7 +366,7 @@ Needs to be in, but are not mandatory
 
 ## Some remarks
 ### Before hooks
-Investigate how this works
+Before hooks are not added to the WebdriverIO reporter. There is no way in telling they passed / failed.
 #### Pass
 Not logged in `wdio-cucumberjs-framework` => not in this module
 #### Failed
@@ -345,7 +379,7 @@ Pending state will result in the following:
 Meaning I can't log this
 
 ### After hooks
-Investigate how this works
+After hooks are not added to the WebdriverIO reporter. There is no way in telling they passed / failed
 #### Pass
 Not logged in `wdio-cucumberjs-framework` => not in this module
 #### Failed
