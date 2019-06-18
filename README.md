@@ -303,7 +303,6 @@ const {After, Status} = require('cucumber');
 import multipleCucumberHtmlReporter from 'wdio-multiple-cucumber-html-reporter';
 
 After((scenarioResult)=>{
-    // Here it is added to a failed step, but each time you call `browser.saveScreenshot()` it will automatically bee added to the report
     if (scenarioResult.result.status === Status.FAILED) {
         // It will add the screenshot to the JSON
         multipleCucumberHtmlReporter.attach(browser.saveScreenshot(), 'image/png');
