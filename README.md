@@ -1,7 +1,11 @@
 # wdio-multiple-cucumber-html-reporter
 A WebdriverIO reporter plugin. Reporter that creates beautiful Cucumber HTML reports by using [multiple-cucumber-html-reporter](https://github.com/wswebcreation/multiple-cucumber-html-reporter)
 
-> **THIS REPORTER IS STILL UNDER DEVELOPMENT, FEEL FREE TO ADD PR'S**
+> **THIS MODULE IS DEPRECATED AND IS NOT MAINTAINED ANYMORE. IT DOESN'T SUPPORT CUCUMBERJS WITH WEBDRIVERIO V5 AND IT CAN'T BE MIGRATED TO V5 DUE TO TECHNICAL LIMITATIONS**
+> **IF YOU WANT TO USE CUCUMBERJS WITH WEBDRIVERIO V5 AND A SIMILAR IMPLEMENTATION LIKE THIS, PLEASE CHECK [wdio-cucumberjs-json-reporter](https://github.com/wswebcreation/wdio-cucumberjs-json-reporter)**
+
+
+> **~THIS REPORTER IS STILL UNDER DEVELOPMENT, FEEL FREE TO ADD PR'S~**
 
 > **THIS REPORTER NEEDS TO USE `wdio-cucumber-framework` `2.2.5` OR HIGHER, SEE FAQ'S**
 
