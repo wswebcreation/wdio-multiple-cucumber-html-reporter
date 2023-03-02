@@ -58,7 +58,7 @@
         "wdio-cucumber-framework": "^2.2.8",
         "wdio-selenium-standalone-service": "0.0.10",
         "wdio-spec-reporter": "^0.1.4",
-        "webdriverio": "^4.14.4",
+        "webdriverio": "^8.5.1",
         "yargs": "^11.0.0"
     }
 }
